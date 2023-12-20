@@ -1,6 +1,6 @@
 # random-password
 
-This repo is a fork of the original `random-password` php script created by Chrisitian Haensel. The purpose of this repo is to take this script and convert it into other scripting languages for easy execution.
+This repo is a fork of the original `random-password` php [script/gist](https://gist.github.com/joshhartman/1507069/forks) created by Chrisitian Haensel. The purpose of this repo is to take this script and convert it into other scripting languages for easy execution.
 
 ## Original Credits
 ``` php
