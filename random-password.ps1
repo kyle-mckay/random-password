@@ -57,11 +57,23 @@ function GetRandomPassword () {
     $hostInput = ''
     $repeatLoop = $true
     do {
+        $test = $true
         $hostInput = Read-Host "How many characters do you want your password to be? Minimum length is 8. Press enter while blank to default to 8."
-        if ($hostInput -eq ''){
+        if ($hostInput -eq '' -or $null -eq $hostInput){
             $hostInput = 8
         }
-        $test = $hostInput -is [Int] -and $hostInput -ge 8 -and $hostInput -ne ''
+        try {
+            $hostinput = [int]$hostInput
+        }
+        catch {
+            $test = $false
+            Write-Host "ERROR: Unable to convert input '$hostinput' to INT."
+        }
+        
+        if ($hostInput -lt 8) {
+            $test = $false
+            Write-Host "ERROR: Input of '$hostinput' is below the minimum length of 8."
+        }
         if($test){$repeatLoop = $false}
         $len = $hostInput
     } while ($repeatLoop)
